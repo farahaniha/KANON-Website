@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -51,7 +52,6 @@
                 <a href="#industries">Industries</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#about">About</a>
-                <!-- دکمه Contact با استایل مستقیم برای سفید شدن متن -->
                 <a href="#contact" class="btn-primary" style="color: #ffffff !important;">Contact</a>
             </nav>
         </div>
@@ -136,11 +136,55 @@
                 </div>
             </div>
         </section>
+        
         <section id="contact" class="section contact-section">
             <div class="container">
-                <h2>Let's discuss your data integrity.</h2>
-                <p>If your organization requires independent, expert-level assurance of your measurement data, let's connect.</p>
-                <a href="mailto:farahani@kanondata.com" class="btn-primary btn-large">farahani@kanondata.com</a>
+                <h2>Let's discuss your challenge.</h2>
+                <p>Have a question about measurement data integrity or need support with an environmental data challenge? I'd be pleased to hear from you.</p>
+                
+                <form id="contact-form" action="https://formspree.io/f/mrpprzor" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Business Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email" inputmode="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company / Organization *</label>
+                        <input type="text" id="company" name="company" required placeholder="Your company name" autocomplete="organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Area of Interest</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select a topic (optional)</option>
+                            <option value="data_integrity">Data Integrity Assessment</option>
+                            <option value="measurement_review">Measurement System Review</option>
+                            <option value="compliance">Compliance Gap Analysis</option>
+                            <option value="training">Training & Technical Advisory</option>
+                            <option value="other">Other</option>
+                            <option value="not_sure">Not Sure Yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How can we help? *</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Briefly describe your situation, such as the systems or data involved, any regulatory context, and your timeline."></textarea>
+                    </div>
+                    
+                    <!-- Honeypot -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <!-- Turnstile Widget -->
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAAFyG2gwM5Z8as91b" data-theme="light"></div>
+                    
+                    <button type="submit" class="btn-primary btn-large" id="submit-btn">Send Inquiry</button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+                
+                <p style="margin-top: 20px; font-size: 0.9em; color: #64748b;">
+                    Your information will be treated confidentially. Or email me directly: <a href="mailto:farahani@kanondata.com" style="color: #047857;">farahani@kanondata.com</a>
+                </p>
             </div>
         </section>
     </main>
@@ -150,5 +194,49 @@
             <p class="footer-tagline">Standard and Verified Data.</p>
         </div>
     </footer>
+    
+    <script>
+        const form = document.getElementById('contact-form');
+        const btn = document.getElementById('submit-btn');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            status.textContent = '';
+            status.className = 'form-status';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    status.textContent = 'Thank you. Your inquiry has been received. I will get back to you within one business day.';
+                    status.classList.add('success');
+                    if (window.turnstile) window.turnstile.reset();
+                } else {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Submission failed');
+                }
+            } catch (error) {
+                status.textContent = 'Something went wrong. Please try again or email me directly.';
+                status.classList.add('error');
+                if (window.turnstile) window.turnstile.reset();
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Send Inquiry';
+            }
+        });
+    </script>
 </body>
 </html>
