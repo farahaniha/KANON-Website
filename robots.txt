@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kanondata.com/sitemap.xml
