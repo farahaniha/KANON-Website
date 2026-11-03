@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Turnstile Script -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="application/ld+json">
     {
@@ -39,6 +40,34 @@
       ]
     }
     </script>
+    <style>
+        /* Styles for the new form (Inline to ensure it works) */
+        .contact-section { background-color: #f6f8fb !important; color: #0f172a !important; }
+        .contact-section h2 { color: #0f172a !important; }
+        
+        .kanon-form { max-width: 640px; margin: 2rem auto 0; text-align: left; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .kanon-form .field { margin-bottom: 1.25rem; }
+        .kanon-form label { display: block; margin-bottom: .4rem; font-weight: 600; font-size: .95rem; color: #0f172a; }
+        .kanon-form .req { color: #047857; }
+        .kanon-form input, .kanon-form select, .kanon-form textarea { width: 100%; box-sizing: border-box; padding: .8rem 1rem; min-height: 48px; font-family: 'Inter', sans-serif; font-size: 16px; color: #0f172a; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; }
+        .kanon-form textarea { min-height: 150px; resize: vertical; }
+        .kanon-form ::placeholder { color: #94a3b8; opacity: 1; }
+        .kanon-form input:focus, .kanon-form select:focus, .kanon-form textarea:focus { outline: 2px solid #047857; outline-offset: 1px; border-color: #047857; }
+        .kanon-form .hp { position: absolute; left: -9999px; }
+        .kanon-form button { width: 100%; min-height: 52px; cursor: pointer; font-weight: 600; font-size: 1.05rem; color: #fff; background: #047857; border: 0; border-radius: 6px; transition: background 0.2s; }
+        .kanon-form button:hover { background: #0369a1; }
+        .kanon-form button:disabled { opacity: .6; cursor: wait; }
+        .kanon-form .cf-turnstile { margin: 0 0 1.25rem; min-height: 65px; }
+        .kanon-form .note { margin-top: 1rem; font-size: .9rem; color: #64748b; text-align: center; }
+        .kanon-form .note a { color: #047857; }
+        .kanon-status { margin-top: 1.25rem; padding: 1rem 1.25rem; border-radius: 6px; display: none; }
+        .kanon-status.ok { display: block; background: #ecfdf5; color: #047857; border: 1px solid #047857; }
+        .kanon-status.err { display: block; background: #fef2f2; color: #b91c1c; border: 1px solid #b91c1c; }
+        
+        @media (max-width: 768px) {
+            .kanon-form { padding: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -140,49 +169,51 @@
         <section id="contact" class="section contact-section">
             <div class="container">
                 <h2>Let's discuss your challenge.</h2>
-                <p class="section-desc" style="color: var(--text-muted);">Have a question about measurement data integrity or need support with an environmental data challenge? I'd be pleased to hear from you.</p>
+                <p class="section-desc">Have a question about measurement data integrity or need support with an environmental data challenge? I'd be pleased to hear from you.</p>
                 
-                <form id="contact-form" action="https://formspree.io/f/mrpprzor" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Business Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email" inputmode="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company / Organization *</label>
-                        <input type="text" id="company" name="company" required placeholder="Your company name" autocomplete="organization">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">Area of Interest</label>
-                        <select id="interest" name="interest">
-                            <option value="">Select a topic (optional)</option>
-                            <option value="data_integrity">Data Integrity Assessment</option>
-                            <option value="measurement_review">Measurement System Review</option>
-                            <option value="compliance">Compliance Gap Analysis</option>
-                            <option value="training">Training & Technical Advisory</option>
-                            <option value="other">Other</option>
-                            <option value="not_sure">Not Sure Yet</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">How can we help? *</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Briefly describe your situation, such as the systems or data involved, any regulatory context, and your timeline."></textarea>
-                    </div>
-                    
-                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-                    
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAAFyG2gwM5Z8as91b" data-theme="light" style="margin-bottom: 1rem;"></div>
-                    
-                    <button type="submit" class="btn-primary btn-large" id="submit-btn" style="width: 100%; margin-top: 1rem;">Send Inquiry</button>
-                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                <!-- KANON Contact Form -->
+                <form class="kanon-form" id="kanon-form" action="https://formspree.io/f/mrpprzor" method="POST" novalidate>
+                  <div class="field">
+                    <label for="f-name">Full name <span class="req">*</span></label>
+                    <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
+                  </div>
+                  <div class="field">
+                    <label for="f-email">Business email <span class="req">*</span></label>
+                    <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@company.com">
+                  </div>
+                  <div class="field">
+                    <label for="f-company">Company / organization <span class="req">*</span></label>
+                    <input id="f-company" name="company" type="text" autocomplete="organization" required placeholder="Your company name">
+                  </div>
+                  <div class="field">
+                    <label for="f-topic">Area of interest</label>
+                    <select id="f-topic" name="topic">
+                      <option value="" selected>Select a topic (optional)</option>
+                      <option>Data integrity assessment</option>
+                      <option>Measurement system review</option>
+                      <option>Compliance gap analysis</option>
+                      <option>Training &amp; advisory</option>
+                      <option>Not sure yet</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="f-message">How can we help? <span class="req">*</span></label>
+                    <textarea id="f-message" name="message" required placeholder="Briefly describe your situation: the systems or data involved, any regulatory context, and your timeline."></textarea>
+                  </div>
+                  
+                  <!-- Honeypot -->
+                  <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+                  
+                  <!-- Turnstile Widget -->
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAAAFyG2gwM5Z8as91b" data-theme="light"></div>
+                  
+                  <button type="submit" id="kanon-submit">Send inquiry</button>
+                  <div id="kanon-status" class="kanon-status" role="status" aria-live="polite" tabindex="-1"></div>
+                  <p class="note">
+                    Your information will be treated confidentially. Or email me directly:
+                    <a href="mailto:farahani@kanondata.com">farahani@kanondata.com</a>
+                  </p>
                 </form>
-                
-                <p style="margin-top: 20px; font-size: 0.9em; color: #64748b;">
-                    Your information will be treated confidentially. Or email me directly: <a href="mailto:farahani@kanondata.com" style="color: #047857;">farahani@kanondata.com</a>
-                </p>
             </div>
         </section>
     </main>
@@ -194,47 +225,41 @@
     </footer>
     
     <script>
-        const form = document.getElementById('contact-form');
-        const btn = document.getElementById('submit-btn');
-        const status = document.getElementById('form-status');
+        (function () {
+          var form = document.getElementById('kanon-form');
+          var btn = document.getElementById('kanon-submit');
+          var box = document.getElementById('kanon-status');
+          var mail = 'farahani@kanondata.com';
 
-        form.addEventListener('submit', async (e) => {
+          function show(kind, html) {
+            box.className = 'kanon-status ' + kind;
+            box.innerHTML = html;
+            box.focus();
+          }
+
+          form.addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            status.textContent = '';
-            status.className = 'form-status';
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            btn.disabled = true; btn.textContent = 'Sending…';
 
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    form.reset();
-                    status.textContent = 'Thank you. Your inquiry has been received. I will get back to you within one business day.';
-                    status.classList.add('success');
-                    if (window.turnstile) window.turnstile.reset();
-                } else {
-                    const data = await response.json();
-                    throw new Error(data.error || 'Submission failed');
-                }
-            } catch (error) {
-                status.textContent = 'Something went wrong. Please try again or email me directly.';
-                status.classList.add('error');
-                if (window.turnstile) window.turnstile.reset();
-            } finally {
-                btn.disabled = false;
-                btn.textContent = 'Send Inquiry';
-            }
-        });
+            fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { 'Accept': 'application/json' }
+            }).then(function (r) {
+              if (r.ok) {
+                form.reset();
+                show('ok', '<strong>Thank you for contacting KANON.</strong> Your inquiry has been received. I will personally review your message and reply within one business day.');
+                btn.style.display = 'none';
+              } else { throw new Error('bad status'); }
+            }).catch(function () {
+              show('err', 'We couldn\u2019t send your message. Please try again, or email me directly at ' +
+                '<a href="mailto:' + mail + '">' + mail + '</a>.');
+              btn.disabled = false; btn.textContent = 'Send inquiry';
+              if (window.turnstile) { try { turnstile.reset(); } catch (x) {} }
+            });
+          });
+        })();
     </script>
 </body>
 </html>
