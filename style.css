@@ -34,8 +34,8 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem 2.5rem;
+    flex-wrap: nowrap;
+    gap: 0.75rem 2rem;
     height: auto;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
@@ -67,7 +67,7 @@ a { text-decoration: none; color: inherit; }
 }
 .brand-greek {
     font-family: var(--font-sans);
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-style: italic;
     color: #94A3B8;
     line-height: 1.2;
@@ -78,7 +78,7 @@ a { text-decoration: none; color: inherit; }
 }
 .nav nav {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.1rem;
     align-items: center;
     margin-top: 0;
     flex-shrink: 0;
@@ -87,13 +87,13 @@ a { text-decoration: none; color: inherit; }
 }
 .nav nav a {
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     transition: color 0.2s;
 }
 .nav nav a:hover { color: var(--primary); }
 
-.nav nav .btn-primary { padding: 0.6rem 1.25rem; font-size: 0.95rem; }
+.nav nav .btn-primary { padding: 0.5rem 1rem; font-size: 0.85rem; }
 
 /* Buttons */
 .btn-primary, .btn-outline {
@@ -350,7 +350,8 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
+    .nav { flex-wrap: wrap; }
     .brand-desc { letter-spacing: 0.03em; }
 }
 @media (max-width: 768px) {
