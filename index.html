@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KANON | Measurement Data Integrity & Quality Assurance</title>
-    <meta name="description" content="Independent consultancy combining metrology, analytical chemistry, and AI to strengthen measurement data integrity across regulated and measurement-intensive industries.">
+    <meta name="description" content="Independent data consultancy specializing in data integrity, quality, validation, and intelligence for industrial and regulated environments.">
     <meta property="og:title" content="KANON | Measurement data you can defend.">
-    <meta property="og:description" content="Standard and Verified Data. Bridging metrology, analytical chemistry, and AI for pharmaceutical, mining, and environmental sectors.">
+    <meta property="og:description" content="Standard and Verified Data. Bridging metrology, analytical chemistry, and AI for industrial sectors.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kanondata.com/">
     <link rel="canonical" href="https://kanondata.com/">
@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -24,7 +25,7 @@
           "name": "Hadi Farahani",
           "honorificSuffix": "PhD",
           "url": "https://kanondata.com/",
-          "jobTitle": "Independent Measurement Data Consultant",
+          "jobTitle": "Independent Data Consultant",
           "knowsAbout": ["Measurement Data Integrity", "Metrology", "Analytical Chemistry", "AI", "QGIS"]
         },
         {
@@ -39,6 +40,12 @@
     }
     </script>
     <style>
+        .site-header { height: auto !important; min-height: 100px; padding: 0.5rem 0; }
+        .nav { height: auto !important; padding-top: 0.5rem; padding-bottom: 0.5rem; align-items: flex-start; }
+        .brand { display: flex; flex-direction: column; gap: 2px !important; text-decoration: none; }
+        .brand-name { font-family: 'JetBrains Mono', monospace; font-size: 1.6rem !important; font-weight: 700; letter-spacing: 0.25em !important; line-height: 1.2; color: var(--text-main); }
+        .brand-desc { font-family: 'Inter', sans-serif; font-size: 0.7rem !important; font-weight: 600; letter-spacing: 0.08em !important; line-height: 1.2; color: var(--text-main); }
+        .brand-greek { font-family: 'Inter', sans-serif; font-size: 0.65rem !important; font-style: italic; color: var(--text-muted); line-height: 1.2; opacity: 0.8; }
         .contact-section { background-color: #f6f8fb !important; color: #0f172a !important; }
         .contact-section h2 { color: #0f172a !important; }
         .kanon-form { max-width: 640px; margin: 2rem auto 0; text-align: left; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
@@ -60,15 +67,14 @@
         .kanon-status.err { display: block; background: #fef2f2; color: #b91c1c; border: 1px solid #b91c1c; }
         @media (max-width: 768px) { .kanon-form { padding: 1.5rem; } }
     </style>
-
-
+</head>
 <body>
     <header class="site-header">
         <div class="container nav">
-            <a href="#" class="brand" style="display: flex; flex-direction: column; gap: 4px;">
-                <span class="brand-name" style="font-size: 1.8rem; letter-spacing: 0.2em;">K A N O N</span>
-                <span class="brand-desc" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; color: var(--text-main);">MEASUREMENT DATA INTEGRITY & INTELLIGENCE</span>
-                <span class="brand-greek" style="font-size: 0.7rem; color: var(--text-muted); font-style: italic;">Κανών — Greek for standard or measuring rod.</span>
+            <a href="#" class="brand">
+                <span class="brand-name">K A N O N</span>
+                <span class="brand-desc">MEASUREMENT DATA INTEGRITY & INTELLIGENCE</span>
+                <span class="brand-greek">Κανών — Greek for standard or measuring rod.</span>
             </a>
             <nav>
                 <a href="#services">Services</a>
@@ -89,7 +95,7 @@
                     <a href="#services" class="btn-outline">View Services →</a>
                 </div>
                 <div class="credibility-strip">
-                    <p><strong>Founded and led by Hadi Farahani, PhD.</strong> Independent expertise in measurement science, analytical chemistry, and environmental data intelligence.</p>
+                    <p><strong>Founded and led by Hadi Farahani, PhD.</strong> Combining measurement science, analytical chemistry, and advanced data analytics to solve complex industrial data challenges.</p>
                 </div>
             </div>
         </section>
@@ -127,11 +133,11 @@
                     <div class="portfolio-col">
                         <h3>Technical Framework</h3>
                         <ul class="method-list">
-                            <li><strong>A:</strong> Data Quality & Metrology (A01-A05)</li>
-                            <li><strong>B:</strong> Industrial Operations (B01-B05)</li>
-                            <li><strong>C:</strong> Geospatial & Earth Observation (C01-C05)</li>
-                            <li><strong>D:</strong> Risk & Forecasting (D01-D05)</li>
-                            <li><strong>E:</strong> Compliance & Governance (E01-E05)</li>
+                            <li><strong>A:</strong> Measurement Data Quality & Metrology</li>
+                            <li><strong>B:</strong> Industrial Data Analytics & Automation</li>
+                            <li><strong>C:</strong> Geospatial & Earth Observation Intelligence</li>
+                            <li><strong>D:</strong> Risk Analysis & Predictive Intelligence</li>
+                            <li><strong>E:</strong> Data Governance, Compliance & Decision Support</li>
                         </ul>
                     </div>
                     <div class="portfolio-col">
@@ -142,7 +148,7 @@
                             <li>Methane Emission Monitoring</li>
                             <li>Drilling Waste Characterization</li>
                             <li>Oil Spill Risk Mapping</li>
-                            <li>Groundwater Quality Trends</li>
+                            <li>Groundwater Quality Analysis</li>
                             <li>Industrial Air Quality Intelligence</li>
                             <li>Climate Hazard Exposure Analysis</li>
                             <li>Oily Sludge & Contaminated Soil</li>
@@ -164,12 +170,10 @@
                 </div>
             </div>
         </section>
-        
         <section id="contact" class="section contact-section">
             <div class="container">
-                <h2>Let's discuss your challenge.</h2>
-                <p class="section-desc" style="color: #4a5b6e;">Have a question about measurement data integrity or need support with an environmental data challenge? I'd be pleased to hear from you.</p>
-                
+                <h2>Facing a data challenge?</h2>
+                <p class="section-desc" style="color: #4a5b6e;">Facing a data quality, integrity, or analytical challenge in your industry? Let's discuss how KANON can help.</p>
                 <form class="kanon-form" id="kanon-form" action="https://formspree.io/f/mwllakal" method="POST" novalidate>
                   <div class="field">
                     <label for="f-name">Full name <span class="req">*</span></label>
@@ -190,7 +194,7 @@
                       <option>Data integrity assessment</option>
                       <option>Measurement system review</option>
                       <option>Compliance gap analysis</option>
-                      <option>Training &amp; advisory</option>
+                      <option>Training & advisory</option>
                       <option>Not sure yet</option>
                     </select>
                   </div>
@@ -198,10 +202,7 @@
                     <label for="f-message">How can we help? <span class="req">*</span></label>
                     <textarea id="f-message" name="message" required placeholder="Briefly describe your situation: the systems or data involved, any regulatory context, and your timeline."></textarea>
                   </div>
-                  
-                  <!-- Honeypot for Spam Protection -->
                   <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-                  
                   <button type="submit" id="kanon-submit">Send inquiry</button>
                   <div id="kanon-status" class="kanon-status" role="status" aria-live="polite" tabindex="-1"></div>
                   <p class="note">
@@ -218,25 +219,21 @@
             <p class="footer-tagline">Standard and Verified Data.</p>
         </div>
     </footer>
-    
     <script>
         (function () {
           var form = document.getElementById('kanon-form');
           var btn = document.getElementById('kanon-submit');
           var box = document.getElementById('kanon-status');
           var mail = 'farahani@kanondata.com';
-
           function show(kind, html) {
             box.className = 'kanon-status ' + kind;
             box.innerHTML = html;
             box.focus();
           }
-
           form.addEventListener('submit', function (e) {
             e.preventDefault();
             if (!form.checkValidity()) { form.reportValidity(); return; }
             btn.disabled = true; btn.textContent = 'Sending…';
-
             fetch(form.action, {
               method: 'POST',
               body: new FormData(form),
