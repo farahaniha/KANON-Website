@@ -110,3 +110,36 @@ footer { background: var(--surface); padding: 2rem 0; text-align: center; border
     .grid-3 { grid-template-columns: 1fr; }
     .kanon-form { padding: 1.5rem; }
 }
+
+/* ===== Header Fix for Multi-line Brand ===== */
+.site-header {
+    height: auto !important;
+    min-height: 100px;
+    padding: 10px 0;
+}
+.nav {
+    height: auto !important;
+    align-items: flex-start;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.brand-name {
+    font-size: 1.6rem;
+    letter-spacing: 0.25em;
+    line-height: 1.1;
+}
+.brand-desc {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    font-weight: 600;
+}
+.brand-greek {
+    font-size: 0.65rem;
+    font-style: italic;
+    color: #64748b;
+    line-height: 1.2;
+}
