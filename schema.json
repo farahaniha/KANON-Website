@@ -1,4 +1,4 @@
- {
+{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -8,7 +8,10 @@
       "honorificSuffix": "PhD",
       "url": "https://kanondata.com/",
       "jobTitle": "Independent Measurement Data Consultant",
-      "knowsAbout": ["Measurement Data Integrity", "Metrology", "Analytical Chemistry", "AI", "QGIS"]
+      "knowsAbout": ["Measurement Data Integrity", "Metrology", "Analytical Chemistry", "AI", "QGIS"],
+      "sameAs": [
+        "https://www.linkedin.com/in/hadifarahani/"
+      ]
     },
     {
       "@type": "ProfessionalService",
@@ -19,4 +22,4 @@
       "serviceType": ["Measurement Quality & Metrology", "Data Integrity & Validation", "Statistical & Analytical Intelligence", "Geospatial Risk Intelligence", "Decision Support & Automation"]
     }
   ]
-} 
+}
