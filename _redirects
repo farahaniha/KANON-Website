@@ -1,0 +1,9 @@
+# Redirect missing project pages to the contact section
+/projects/03-methane-emissions/*    /#contact   302
+/projects/04-drilling-waste/*       /#contact   302
+/projects/05-oil-spill/*            /#contact   302
+/projects/06-groundwater/*          /#contact   302
+/projects/07-air-quality/*          /#contact   302
+/projects/08-climate-exposure/*     /#contact   302
+/projects/09-oily-sludge/*          /#contact   302
+/projects/10-microplastics/*        /#contact   302
