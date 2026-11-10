@@ -359,7 +359,13 @@ td.warn, .warn { color: var(--amber); font-weight: 600; }
 /* Runtime overrides for report page (not in the CSS file) */
 .report-chart { display: block; max-width: 100%; height: auto; margin: 0 auto; }
 </style>
-</head>
+
+    <style>
+      @media screen {
+        body { max-width: 850px !important; margin: 0 auto !important; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+      }
+    </style>
+    </head>
 <body>
 
     <!-- RAW ARTIFACT - no RIPI / no KANON branding. -->
@@ -370,12 +376,6 @@ td.warn, .warn { color: var(--amber); font-weight: 600; }
         <strong>Data Period:</strong> Jan–Jun 2025 &nbsp;|&nbsp; 
         <strong>Version:</strong> 1.0
       </p>
-    </div>
-      <div class="meta">
-        <strong>Data Period:</strong> Jan-Jun 2025<br>
-        <strong>Report ID:</strong> GF-2025-RAW<br>
-        <strong>Version:</strong> 1.0
-      </div>
     </div>
 
     <div class="title-block">
