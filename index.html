@@ -40,12 +40,9 @@
     }
     </script>
     
-
-    
-
     <style>
         /* Hero Title Balance & Spacing */
-        .hero { padding: 3rem 0 3.5rem !important; } /* Reduced top/bottom spacing */
+        .hero { padding: 3rem 0 3.5rem !important; }
         .hero h1 {
             max-width: 18ch;
             margin-inline: auto;
@@ -54,8 +51,22 @@
         }
         /* Contact form heading match */
         .contact-section h2 { margin-bottom: 0.5rem; }
-        .kanon-form { scroll-margin-top: 100px; } /* Prevent sticky header overlap */
+        .kanon-form { scroll-margin-top: 100px; }
         html { scroll-behavior: smooth; }
+        
+        /* "In Dev" Badge styling */
+        .badge-dev {
+            font-size: 0.70rem;
+            background: #e2e8f0;
+            color: #475569;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
@@ -137,16 +148,35 @@
                         <h3>Applied Projects</h3>
                         <ul class="method-list">
 
+                            <!-- 01: LIVE -->
                             <li><strong>01</strong> <a href="projects/01-produced-water/index.html" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Produced Water Analytics</a><br><span style="font-size: 0.85rem; color: #64748b;">Detect treatment failures before discharge limits are breached.</span></li>
-                            <li><strong>02</strong> Gas Flaring Performance<br><span style="font-size: 0.85rem; color: #64748b;">Quantify flare efficiency and identify hidden combustion losses.</span></li>
-                            <li><strong>03</strong> Methane Emissions Monitoring<br><span style="font-size: 0.85rem; color: #64748b;">Turn noisy sensor data into defensible emission estimates.</span></li>
-                            <li><strong>04</strong> Drilling Waste Characterization<br><span style="font-size: 0.85rem; color: #64748b;">Classify waste streams consistently to support disposal and compliance decisions.</span></li>
-                            <li><strong>05</strong> Oil Spill Risk Mapping<br><span style="font-size: 0.85rem; color: #64748b;">Rank spill-exposed areas using spatial data you can trust.</span></li>
-                            <li><strong>06</strong> Groundwater Quality Analysis<br><span style="font-size: 0.85rem; color: #64748b;">Separate real trends from artefacts caused by changing detection limits.</span></li>
-                            <li><strong>07</strong> Industrial Air Quality Intelligence<br><span style="font-size: 0.85rem; color: #64748b;">Separate real pollution events from sensor drift and noise.</span></li>
-                            <li><strong>08</strong> Climate Hazard Exposure Analysis<br><span style="font-size: 0.85rem; color: #64748b;">Show which assets face which hazards, with uncertainty stated.</span></li>
-                            <li><strong>09</strong> Oily Sludge & Soil Contamination Assessment<br><span style="font-size: 0.85rem; color: #64748b;">Validate contamination data before remediation decisions are made.</span></li>
-                            <li><strong>10</strong> Microplastics & Emerging Pollutants Screening<br><span style="font-size: 0.85rem; color: #64748b;">Make low-level, method-dependent results comparable and reportable.</span></li>
+                            
+                            <!-- 02: LIVE -->
+                            <li><strong>02</strong> <a href="projects/02-gas-flaring/index.html" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Gas Flaring Performance</a><br><span style="font-size: 0.85rem; color: #64748b;">Quantify flare efficiency and identify hidden combustion losses.</span></li>
+
+                            <!-- 03: IN DEV -->
+                            <li><strong>03</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Methane Emissions Monitoring</a> <span class="badge-dev">In Dev</span><br><span style="font-size: 0.85rem; color: #64748b;">Turn noisy sensor data into defensible emission estimates.</span></li>
+                            
+                            <!-- 04: FUTURE -->
+                            <li><strong>04</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Drilling Waste Characterization</a><br><span style="font-size: 0.85rem; color: #64748b;">Classify waste streams consistently to support disposal and compliance decisions.</span></li>
+                            
+                            <!-- 05: FUTURE -->
+                            <li><strong>05</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Oil Spill Risk Mapping</a><br><span style="font-size: 0.85rem; color: #64748b;">Rank spill-exposed areas using spatial data you can trust.</span></li>
+                            
+                            <!-- 06: FUTURE -->
+                            <li><strong>06</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Groundwater Quality Analysis</a><br><span style="font-size: 0.85rem; color: #64748b;">Separate real trends from artefacts caused by changing detection limits.</span></li>
+                            
+                            <!-- 07: FUTURE -->
+                            <li><strong>07</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Industrial Air Quality Intelligence</a><br><span style="font-size: 0.85rem; color: #64748b;">Separate real pollution events from sensor drift and noise.</span></li>
+                            
+                            <!-- 08: FUTURE -->
+                            <li><strong>08</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Climate Hazard Exposure Analysis</a><br><span style="font-size: 0.85rem; color: #64748b;">Show which assets face which hazards, with uncertainty stated.</span></li>
+                            
+                            <!-- 09: FUTURE -->
+                            <li><strong>09</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Oily Sludge & Soil Contamination Assessment</a><br><span style="font-size: 0.85rem; color: #64748b;">Validate contamination data before remediation decisions are made.</span></li>
+                            
+                            <!-- 10: FUTURE -->
+                            <li><strong>10</strong> <a href="#contact" style="color: #2E7D5B; text-decoration: underline; font-weight: bold;">Microplastics & Emerging Pollutants Screening</a><br><span style="font-size: 0.85rem; color: #64748b;">Make low-level, method-dependent results comparable and reportable.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -211,7 +241,6 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 KANON. Independent practice by Hadi Farahani, PhD.</p>
-            
         </div>
     </footer>
     <script>
