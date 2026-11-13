@@ -481,4 +481,13 @@ footer {
     .nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .nav nav { flex-wrap: wrap; justify-content: flex-start; gap: 1rem; margin-top: 0; }
     .hero { padding: 3rem 0; }
-   
+    .hero-cta { flex-direction: column; }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .kanon-form { padding: 1.5rem; }
+    .brand-name { font-size: 1.3rem; letter-spacing: 0.15em; }
+    .brand-desc { font-size: 0.6rem; letter-spacing: 0.02em; }
+    .brand-greek { font-size: 0.55rem; }
+    .tab-bar { flex-direction: column; gap: 0; align-items: center; }
+    .tab-bar label { width: 100%; text-align: center; padding: 1rem 0; }
+}
