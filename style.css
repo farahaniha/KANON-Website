@@ -11,23 +11,26 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
-h1, h2, h3 { color: var(--text-main); line-height: 1.2; }
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1.25rem; }
+body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3 { color: var(--text-main); line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.25rem; text-wrap: balance; }
 h2 { font-size: 2rem; font-weight: 700; margin-bottom: 2rem; text-align: center; }
-p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem; }
+p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem; max-width: 70ch; margin-left: auto; margin-right: auto; text-wrap: pretty; }
 a { text-decoration: none; color: inherit; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-/* Header & Brand */
+/* Header & Brand (Glassmorphism) */
 .site-header {
-    background: #ffffff;
-    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
     position: sticky;
     top: 0;
     z-index: 100;
     height: auto;
     padding: 10px 0;
+    transition: background-color 0.3s ease;
 }
 .nav {
     display: flex;
@@ -75,17 +78,6 @@ a { text-decoration: none; color: inherit; }
     white-space: nowrap;
     letter-spacing: 0.02em;
 }
-/* NEW TAGLINE STYLE */
-.brand-tagline {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: var(--primary); /* KANON Green */
-    line-height: 1.2;
-    margin-top: 3px;
-    white-space: nowrap;
-    letter-spacing: 0.03em;
-}
 .nav nav {
     display: flex;
     gap: 1.1rem;
@@ -102,8 +94,63 @@ a { text-decoration: none; color: inherit; }
     transition: color 0.2s;
 }
 .nav nav a:hover { color: var(--primary); }
-
 .nav nav .btn-primary { padding: 0.5rem 1rem; font-size: 0.85rem; }
+
+/* Section Indexing (Numbering) */
+.section-header { margin-bottom: 3rem; }
+.section-index {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* Hero */
+.hero {
+    padding: 4.5rem 0 4rem;
+    background-image: url('assets/bg-grid.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+.hero-kicker {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    background: rgba(4, 120, 87, 0.08);
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+.hero-sub {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+.credibility-strip {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.credibility-strip strong { color: var(--text-main); }
 
 /* Buttons */
 .btn-primary, .btn-outline {
@@ -132,45 +179,9 @@ a { text-decoration: none; color: inherit; }
     border-color: var(--primary);
     color: var(--primary);
 }
-.btn-large {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-}
-
-/* Hero */
-.hero {
-    padding: 4.5rem 0 4rem;
-    background-image: url('assets/bg-grid.jpg');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-}
-.hero-content { max-width: 800px; }
-.hero-sub {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.hero-cta {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-}
-.credibility-strip {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-.credibility-strip strong { color: var(--text-main); }
 
 /* Sections */
-.section { padding: 6rem 0; }
+.section { padding: 5.5rem 0; }
 .bg-light { background-color: var(--surface); }
 .section-desc {
     text-align: center;
@@ -180,7 +191,7 @@ a { text-decoration: none; color: inherit; }
     margin-right: auto;
 }
 
-/* Grid & Cards */
+/* Grid & Cards (Hairline Borders) */
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -191,10 +202,10 @@ a { text-decoration: none; color: inherit; }
     border: 1px solid var(--border);
     padding: 2rem;
     border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 .card:hover {
-    transform: translateY(-5px);
+    border-color: rgba(4, 120, 87, 0.45);
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 .card h3 {
@@ -250,6 +261,7 @@ a { text-decoration: none; color: inherit; }
 .about-content p {
     font-size: 1.15rem;
     margin-bottom: 1.5rem;
+    max-width: none;
 }
 .tagline {
     font-family: var(--font-mono);
@@ -263,9 +275,7 @@ a { text-decoration: none; color: inherit; }
     background-color: var(--bg-color) !important;
     color: var(--text-main) !important;
 }
-.contact-section h2 {
-    color: var(--text-main) !important;
-}
+.contact-section h2 { color: var(--text-main) !important; }
 .kanon-form {
     max-width: 640px;
     margin: 2rem auto 0;
@@ -295,13 +305,14 @@ a { text-decoration: none; color: inherit; }
     background: #ffffff;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .kanon-form textarea { min-height: 150px; resize: vertical; }
 .kanon-form ::placeholder { color: #94a3b8; opacity: 1; }
 .kanon-form input:focus, .kanon-form select:focus, .kanon-form textarea:focus {
-    outline: 2px solid #047857;
-    outline-offset: 1px;
+    outline: none;
     border-color: #047857;
+    box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.15);
 }
 .kanon-form .hp { position: absolute; left: -9999px; }
 .kanon-form button {
